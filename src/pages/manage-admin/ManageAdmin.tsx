@@ -52,7 +52,7 @@ const Event = () => {
 
   const fetchAdmins = async () => {
     try {
-      const response = await axios.get('https://springboot-lms-latest-5.onrender.com/api/admin');
+      const response = await axios.get('https://springboot-eventhub-latest.onrender.com/api/admin');
       setAdmins(response.data);
     } catch (error) {
       console.error('Error fetching admins:', error);
@@ -62,7 +62,7 @@ const Event = () => {
   const handleStatusToggle = async (userID: number, currentStatus: string) => {
     const newStatus = currentStatus === 'Active' ? 'Inactive' : 'Active';
     try {
-      await axios.put(`https://springboot-lms-latest-5.onrender.com/api/admin/${userID}/status`, { status: newStatus });
+      await axios.put(`https://springboot-eventhub-latest.onrender.com/api/admin/${userID}/status`, { status: newStatus });
       setAdmins((prevAdmins) =>
         prevAdmins.map((admin) =>
           admin.userID === userID ? { ...admin, status: newStatus } : admin
@@ -80,7 +80,7 @@ const Event = () => {
 
   const handleAddAdmin = async () => {
     try {
-      const response = await axios.post('https://springboot-lms-latest-5.onrender.com/api/admin/add', newAdmin);
+      const response = await axios.post('https://springboot-eventhub-latest.onrender.com/api/admin/add', newAdmin);
       setAdmins((prev) => [...prev, response.data]); // Add the new admin to the list
       setOpen(false); // Close the modal
 

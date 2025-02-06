@@ -88,7 +88,7 @@ const ActionMenu = () => {
 
   const fetchEventData = async () => {
     try {
-      const response = await axios.get(`https://springboot-lms-latest-5.onrender.com/api/events/${eventID}`);
+      const response = await axios.get(`https://springboot-eventhub-latest.onrender.com/api/events/${eventID}`);
       setEventData(response.data);
       setFormData(response.data); // Populate form with event data
     } catch (error) {
@@ -107,7 +107,7 @@ const ActionMenu = () => {
     e.preventDefault();
     if (formData) {
       try {
-        await axios.put(`https://springboot-lms-latest-5.onrender.com/api/events/${eventID}`, formData);
+        await axios.put(`https://springboot-eventhub-latest.onrender.com/api/events/${eventID}`, formData);
         enqueueSnackbar('Event updated successfully', { variant: 'success' });
         setOpen(false);
 

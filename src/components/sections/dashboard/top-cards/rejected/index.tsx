@@ -15,11 +15,11 @@ const Activity = () => {
     const fetchEvents = async () => {
       try {
         if (user.role === "MainAdmin") {
-          const response = await axios.get(`http://localhost:8080/api/events`);      
+          const response = await axios.get(`https://springboot-eventhub-latest.onrender.com/api/events`);      
         const declinedEvents = response.data.filter((event: { status: string }) => event.status === 'Declined');
         setdeclinedEventsCount(declinedEvents.length);
         } else if (user.role === "Admin") {
-          const response = await axios.get(`http://localhost:8080/api/events/organizer/${user.userID}`);      
+          const response = await axios.get(`https://springboot-eventhub-latest.onrender.com/api/events/organizer/${user.userID}`);      
         const declinedEvents = response.data.filter((event: { status: string }) => event.status === 'Declined');
         setdeclinedEventsCount(declinedEvents.length);
         }

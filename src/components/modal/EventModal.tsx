@@ -20,7 +20,7 @@ const EventModal = ({ open, onClose, eventId }: EditEventModalProps) => {
   useEffect(() => {
     if (eventId) {
       // Fetch event details using eventId (e.g., from an API)
-      fetch(`http://localhost:8080/api/events/${eventId}`)
+      fetch(`https://springboot-eventhub-latest.onrender.com/api/events/${eventId}`)
         .then((response) => response.json())
         .then((data) => setEventData(data))
         .catch((error) => console.error('Error fetching event data:', error));

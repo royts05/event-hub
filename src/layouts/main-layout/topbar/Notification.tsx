@@ -39,9 +39,9 @@ const Notification = () => {
 
   const getNotifications = async () => {
     try {
-      const response = await axios.get(`https://springboot-lms-latest-5.onrender.com/api/notification/event/${user.userID}`);
+      const response = await axios.get(`https://springboot-eventhub-latest.onrender.com/api/notification/event/${user.userID}`);
 
-      console.log(`https://springboot-lms-latest-5.onrender.com/api/notification/event/${user.userID}`);
+      console.log(`https://springboot-eventhub-latest.onrender.com/api/notification/event/${user.userID}`);
       
       // Sort notifications by dateCreated in descending order
       const sortedNotifications = response.data.sort(

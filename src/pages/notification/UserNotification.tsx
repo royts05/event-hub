@@ -52,7 +52,7 @@ const NotificationPage = () => {
   useEffect(() => {
     const fetchNotifications = async () => {
       try {
-        const response = await axios.get<Notification[]>('https://springboot-lms-latest-5.onrender.com/api/notification'); // Type for response
+        const response = await axios.get<Notification[]>('https://springboot-eventhub-latest.onrender.com/api/notification'); // Type for response
         // Filter notifications to only show Approved or Cancelled events
         const filteredNotifications = response.data.filter(
           (notification) => notification.eventID.status === 'Approved' || notification.eventID.status === 'Cancelled'

@@ -39,7 +39,7 @@ const Profile = () => {
     setOpen(false); 
 
       // Update the backend with the new data
-      await axios.put(`https://springboot-lms-latest-5.onrender.com/api/user/${user.userID}/update`, updatedUser);
+      await axios.put(`https://springboot-eventhub-latest.onrender.com/api/user/${user.userID}/update`, updatedUser);
 
       // If successful, update the context or state to reflect changes immediately
       setUser({ ...user, ...updatedUser });

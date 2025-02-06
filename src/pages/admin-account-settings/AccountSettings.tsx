@@ -36,7 +36,7 @@ const AdminAccountSettings: React.FC = () => {
       };
 
       // Update user data in the backend
-      await axios.put(`https://springboot-lms-latest-5.onrender.com/api/user/${user.userID}/update`, updatedUserData);
+      await axios.put(`https://springboot-eventhub-latest.onrender.com/api/user/${user.userID}/update`, updatedUserData);
 
       const successMessage = 'Account Information has been updated!';
 
@@ -83,7 +83,7 @@ const AdminAccountSettings: React.FC = () => {
           updatedAt: currentTimestamp,  // Add updatedAt timestamp
         };
 
-        await axios.put(`https://springboot-lms-latest-5.onrender.com/api/user/${user.userID}/updatePassword`, updatedUserPassword);
+        await axios.put(`https://springboot-eventhub-latest.onrender.com/api/user/${user.userID}/updatePassword`, updatedUserPassword);
 
         const successMessage = 'Password has been changed!';
 

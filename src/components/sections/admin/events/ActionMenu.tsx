@@ -14,7 +14,6 @@ import emailjs from 'emailjs-com';
 
 const infobipApiKey = import.meta.env.VITE_INFOBIP_API_KEY;
 const infobipBaseUrl = import.meta.env.VITE_INFOBIP_BASE_URL;
-// const infobipBaseUrl = import.meta.env.VITE_INFOBIP_BASE_URL;
 
 interface User {
   userID: number;
@@ -94,11 +93,11 @@ const ActionMenu = ({ eventId, title, organizerID, email, location, startDate, d
 
       // Based on the actionId, define the API URL
       if (actionId === 1) {
-        apiUrl = `http://localhost:8080/api/events/${eventId}/approve`; // Approve
+        apiUrl = `https://springboot-eventhub-latest.onrender.com/api/events/${eventId}/approve`; // Approve
       } else if (actionId === 2) {
-        apiUrl = `http://localhost:8080/api/events/${eventId}/decline`; // Reject
+        apiUrl = `https://springboot-eventhub-latest.onrender.com/api/events/${eventId}/decline`; // Reject
       } else if (actionId === 3) {
-        apiUrl = `http://localhost:8080/api/events/${eventId}/cancel`; // Cancel
+        apiUrl = `https://springboot-eventhub-latest.onrender.com/api/events/${eventId}/cancel`; // Cancel
       }
 
       const response = await fetch(apiUrl, {
@@ -141,7 +140,7 @@ const ActionMenu = ({ eventId, title, organizerID, email, location, startDate, d
           sendEmailNotificationToAll(title, startDate, location, description); // Notify all users
         }
 
-        await axios.post(`http://localhost:8080/api/notification/${user.userID}/add`, data);
+        await axios.post(`https://springboot-eventhub-latest.onrender.com/api/notification/${user.userID}/add`, data);
 
         Swal.fire({
           title: 'Success',
@@ -203,7 +202,7 @@ const ActionMenu = ({ eventId, title, organizerID, email, location, startDate, d
     description: string
   ) => {
     try {
-      const res = await axios.get<User[]>(`http://localhost:8080/api/users`);
+      const res = await axios.get<User[]>(`https://springboot-eventhub-latest.onrender.com/api/users`);
   
       for (const user of res.data) {
         const templateParams = {
@@ -228,28 +227,6 @@ const ActionMenu = ({ eventId, title, organizerID, email, location, startDate, d
           .catch((error) => {
             console.error(`Error sending email to ${user.email}:`, error);
           });
-
-        // console.log(`${user.phoneNumber}`);
-        
-        // const response = await axios.post(
-        //   'https://4e1l1n.api.infobip.com/sms/2/text/advanced',
-        //   {
-        //     messages: [
-        //       {
-        //         from: "UEP Event",
-        //         destinations: [{ to: user.phoneNumber }],
-        //         text: `Good day! A new event is coming in our university.`,
-        //       },
-        //     ],
-        //   },
-        //   {
-        //     headers: {
-        //       Authorization: `App ${infobipApiKey}`,
-        //       'Content-Type': 'application/json',
-        //     },
-        //   }
-        // );
-        // console.log('SMS sent successfully:', response.data);
       }
 
       for (const user of res.data) {

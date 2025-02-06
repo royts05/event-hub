@@ -19,7 +19,7 @@ const NotificationsList = () => {
     const fetchNotifications = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(`https://springboot-lms-latest-5.onrender.com/api/notification/event/${user.userID}`); // Adjust the API endpoint
+        const response = await axios.get(`https://springboot-eventhub-latest.onrender.com/api/notification/event/${user.userID}`); // Adjust the API endpoint
         setNotifications(response.data);
       } catch (error) {
         console.error('Error fetching notifications:', error);

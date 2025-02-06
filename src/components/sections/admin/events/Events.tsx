@@ -132,7 +132,7 @@ const Events = ({ searchText }: TaskOverviewTableProps) => {
     const fetchEvents = async () => {
       setLoading(true);
       try {
-        const response = await axios.get('https://springboot-lms-latest-5.onrender.com/api/events');
+        const response = await axios.get('https://springboot-eventhub-latest.onrender.com/api/events');
         
         // Sort the events by createdAt in descending order (latest first)
         const sortedEvents = response.data.sort((a: Event, b: Event) => {

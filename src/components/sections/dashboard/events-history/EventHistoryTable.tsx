@@ -115,7 +115,7 @@ const EventHistoryTable = ({ searchText }: TaskOverviewTableProps) => {
     const fetchEvents = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(`http://localhost:8080/api/events/organizer/${user.userID}`);
+        const response = await axios.get(`https://springboot-eventhub-latest.onrender.com/api/events/organizer/${user.userID}`);
         
         // Sort the events by createdAt in descending order (latest first)
         const sortedEvents = response.data.sort((a: Event, b: Event) => {

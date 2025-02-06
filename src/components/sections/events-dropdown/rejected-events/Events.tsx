@@ -117,7 +117,7 @@ const Events = ({ searchText }: TaskOverviewTableProps) => {
 
       try {
         if (user.role === "MainAdmin") {
-          const response = await axios.get(`https://springboot-lms-latest-5.onrender.com/api/events`);
+          const response = await axios.get(`https://springboot-eventhub-latest.onrender.com/api/events`);
 
           // Sort the events by createdAt in descending order (latest first)
           const sortedEvents = response.data.sort((a: Event, b: Event) => {
@@ -129,7 +129,7 @@ const Events = ({ searchText }: TaskOverviewTableProps) => {
           setEvents(sortedEvents);
         }
         else if (user.role === "Admin") {
-          const response = await axios.get(`https://springboot-lms-latest-5.onrender.com/api/events/organizer/${user.userID}`);
+          const response = await axios.get(`https://springboot-eventhub-latest.onrender.com/api/events/organizer/${user.userID}`);
 
           // Sort the events by createdAt in descending order (latest first)
           const sortedEvents = response.data.sort((a: Event, b: Event) => {

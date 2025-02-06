@@ -53,8 +53,8 @@ const AddEvent = () => {
         updatedAt: currentTimestamp,  // Add updatedAt timestamp
       };
 
-      await axios.post(`https://springboot-lms-latest-5.onrender.com/api/events/${user.userID}}`, eventData);
-      console.log(`https://springboot-lms-latest-5.onrender.com/api/events/${user.userID}`);
+      await axios.post(`https://springboot-eventhub-latest.onrender.com/api/events/${user.userID}}`, eventData);
+      console.log(`https://springboot-eventhub-latest.onrender.com/api/events/${user.userID}`);
 
       const successMessage = 'Event has been added successfully!';
 

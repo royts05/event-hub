@@ -34,7 +34,7 @@ const Signup = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('https://springboot-lms-latest-5.onrender.com/api/register', user);
+      const response = await axios.post('https://springboot-eventhub-latest.onrender.com/api/register', user);
       console.log('User registered successfully:', response.data);
 
       // Trigger SweetAlert2 success message

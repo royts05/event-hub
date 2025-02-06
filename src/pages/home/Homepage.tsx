@@ -40,7 +40,7 @@ const Homepage = () => {
     // Fetch events for the logged-in user
     const fetchEvents = async () => {
       try {
-        const response = await axios.get('https://springboot-lms-latest-5.onrender.com/api/events');
+        const response = await axios.get('https://springboot-eventhub-latest.onrender.com/api/events');
         const approvedEvents = response.data.filter(
           (event: Event) => event.status === 'Approved'
         );
